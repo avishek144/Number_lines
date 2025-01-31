@@ -14,10 +14,11 @@ BEGIN
    WHILE NOT eof(input) DO
    BEGIN
       Write(output, line_number:4, blank);
-      WHILE (NOT eoln(input)) DO
+      WHILE (NOT eoln(input)) AND (NOT eof(input)) DO
       BEGIN
          Read(input, c);
-         number_of_characters := number_of_characters + 1;
+         IF c <> blank THEN
+            number_of_characters := number_of_characters + 1;
          Write(output, c)
       END;
 
