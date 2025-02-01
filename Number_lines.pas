@@ -1,7 +1,7 @@
 PROGRAM demo_program(input, output);
 
 CONST
-   blank       = ' ';
+   blank                       = ' ';
    maximum_line_number_columns = 7;
 
 VAR
