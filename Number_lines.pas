@@ -35,7 +35,7 @@ BEGIN
       write(output, line_number:line_number_comlumns, blank);
       WHILE (NOT eoln(input)) AND (NOT eof(input)) DO
       BEGIN
-         Read(input, c);
+         read(input, c);
          IF c <> blank THEN
             number_of_characters := number_of_characters + 1;
          write(output, c)
