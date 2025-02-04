@@ -1,8 +1,26 @@
-PROGRAM demo_program(input, output);
+(*
+ Number_lines.pas -- Number the lines of its input.
+ Copyright (C) 2025 by Avishek Gorai <avishekgorai@myyahoo.com>
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *)
+
+PROGRAM number_the_lines(input, output);
 
 CONST
-   blank                       = ' ';
-   maximum_line_number_columns = 7;
+   blank                = ' ';
+   line_number_comlumns = 7;
 
 VAR
    line_number, number_of_characters : integer;
@@ -14,18 +32,21 @@ BEGIN
 
    WHILE NOT eof(input) DO
    BEGIN
-      Write(output, line_number:maximum_line_number_columns, blank);
+      write(output, line_number:line_number_comlumns, blank);
       WHILE (NOT eoln(input)) AND (NOT eof(input)) DO
       BEGIN
          Read(input, c);
          IF c <> blank THEN
             number_of_characters := number_of_characters + 1;
-         Write(output, c)
+         write(output, c)
       END;
 
-      Readln(input);
-      Writeln(output);
-      line_number := line_number + 1
+      IF eoln(input) THEN
+      BEGIN
+         readln(input);
+         writeln(output);
+         line_number := line_number + 1
+      END
    END;
 
    writeln;
