@@ -20,7 +20,6 @@ PROGRAM number_the_lines(input, output);
 
 CONST
    blank                = ' ';
-   line_number_comlumns = 7;
 
 VAR
    line_number, number_of_characters : integer;
@@ -30,9 +29,29 @@ BEGIN
    line_number := 1;
    number_of_characters := 0;
 
+   writeln('Copyright (C) 2025  Avishek Gorai <avishekgorai@myyahoo.com>');
+   writeln;
+
+   writeln('This program is free software: you can redistribute it and/or modify');
+   writeln('it under the terms of the GNU General Public License as published by');
+   writeln('the Free Software Foundation, either version 3 of the License, or');
+   writeln('(at your option) any later version.');
+   writeln;
+
+   writeln('This program is distributed in the hope that it will be useful,');
+   writeln('but WITHOUT ANY WARRANTY; without even the implied warranty of');
+   writeln('MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the');
+   writeln('GNU General Public License for more details.');
+   writeln;
+
+   writeln('You should have received a copy of the GNU General Public License');
+   writeln('along with this program.  If not, see <https://www.gnu.org/licenses/>.');
+   writeln;
+
+
    WHILE NOT eof(input) DO
    BEGIN
-      write(output, line_number:line_number_comlumns, blank);
+      write(output, line_number, blank);
       WHILE (NOT eoln(input)) AND (NOT eof(input)) DO
       BEGIN
          read(input, c);
