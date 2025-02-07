@@ -16,10 +16,10 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *)
 
-PROGRAM number_the_lines(input, output);
+PROGRAM number_the_lines;
 
 CONST
-   blank                = ' ';
+   blank = ' ';
 
 VAR
    line_number, number_of_characters : integer;
@@ -49,25 +49,25 @@ BEGIN
    writeln;
 
 
-   WHILE NOT eof(input) DO
+   WHILE NOT eof DO
    BEGIN
-      write(output, line_number, blank);
-      WHILE (NOT eoln(input)) AND (NOT eof(input)) DO
+      write(line_number, blank);
+      WHILE (NOT eoln) AND (NOT eof) DO
       BEGIN
-         read(input, c);
+         read(c);
          IF c <> blank THEN
             number_of_characters := number_of_characters + 1;
-         write(output, c)
+         write(c)
       END;
 
-      IF eoln(input) THEN
+      IF eoln THEN
       BEGIN
-         readln(input);
-         writeln(output);
+         readln;
+         writeln;
          line_number := line_number + 1
       END
    END;
 
    writeln;
-   writeln(output, 'Number of characters:', blank, number_of_characters)
+   writeln('Number of characters:', blank, number_of_characters)
 END.
